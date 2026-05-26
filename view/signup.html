@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Druk Deals – Sign Up</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="auth-page">
+    <!-- Brand Side -->
+    <div class="auth-brand">
+      <div class="brand-logo">Druk<span>Deals</span></div>
+      <div class="brand-tagline">
+        Join thousands of Bhutanese buyers and sellers. List your unused items and earn extra Ngultrum.
+      </div>
+      <div class="brand-deco">
+        <div class="deco-line"></div>
+        <div class="deco-line"></div>
+      </div>
+    </div>
+
+    <!-- Form Side -->
+    <div class="auth-form-side">
+      <div class="auth-form-box">
+        <h2>Create Account</h2>
+        <p class="sub">Join the Druk Deals community today</p>
+
+        <div class="form-group">
+          <label for="fullname">Full Name</label>
+          <input type="text" id="fullname" placeholder="Karma Dorji" autocomplete="name">
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" placeholder="you@example.com" autocomplete="email">
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Min. 6 characters" autocomplete="new-password">
+        </div>
+
+        <button class="btn btn-primary" id="signupBtn" onclick="signup()">Create Account</button>
+
+        <div class="auth-switch">
+          Already have an account? <a href="/">Login here</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/auth.js"></script>
+</body>
+</html>

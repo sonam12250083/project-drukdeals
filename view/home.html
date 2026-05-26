@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Druk Deals – Browse Items</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a class="nav-brand" href="/home">Druk<span>Deals</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="/home" class="active">Browse</a>
+      <a href="/my-items" id="myItemsLink" style="display:none">My Listings</a>
+      <a href="/add-item" class="btn-nav-sell" id="sellLink" style="display:none">+ Sell Item</a>
+      <a href="/" id="loginLink">Login</a>
+    </div>
+    <div class="nav-user" id="navUser" style="display:none">
+      <div class="nav-avatar" id="navAvatar">U</div>
+      <span id="userName"></span>
+      <button class="btn-logout" onclick="logout()">Logout</button>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <h1>Browse All Items</h1>
+    <p>Find great deals on preloved goods across Bhutan</p>
+  </div>
+
+  <!-- Filter Bar -->
+  <div class="filter-bar">
+    <div class="search-input-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" placeholder="Search items, sellers..." oninput="searchProducts(this.value)">
+    </div>
+    <div class="filter-chips">
+      <button class="chip active" onclick="filterByCategory('all', this)">All</button>
+      <button class="chip" onclick="filterByCategory('Electronics', this)">📱 Electronics</button>
+      <button class="chip" onclick="filterByCategory('Clothing', this)">👗 Clothing</button>
+      <button class="chip" onclick="filterByCategory('Books', this)">📚 Books</button>
+      <button class="chip" onclick="filterByCategory('Furniture', this)">🪑 Furniture</button>
+      <button class="chip" onclick="filterByCategory('Other', this)">📦 Other</button>
+    </div>
+  </div>
+
+  <!-- Products -->
+  <div class="products-section">
+    <div class="products-grid" id="productsGrid">
+      <!-- Loaded by JS -->
+    </div>
+  </div>
+
+  <script src="/js/auth.js"></script>
+  <script src="/js/product.js"></script>
+  <script>
+    // Show/hide nav items based on login state
+    document.addEventListener('DOMContentLoaded', () => {
+      const loggedIn = !!localStorage.getItem('user_id');
+      if (loggedIn) {
+        document.getElementById('myItemsLink').style.display = '';
+        document.getElementById('sellLink').style.display = '';
+        document.getElementById('loginLink').style.display = 'none';
+        document.getElementById('navUser').style.display = 'flex';
+      }
+    });
+  </script>
+</body>
+</html>

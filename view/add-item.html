@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Druk Deals – Post an Item</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a class="nav-brand" href="/home">Druk<span>Deals</span></a>
+    <div class="nav-links">
+      <a href="/home">Browse</a>
+      <a href="/my-items">My Listings</a>
+    </div>
+    <div class="nav-user">
+      <div class="nav-avatar" id="navAvatar">U</div>
+      <span id="userName"></span>
+      <button class="btn-logout" onclick="logout()">Logout</button>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="add-item-page">
+    <h2>List Your Item</h2>
+    <p class="sub">Fill in the details below to post your item for sale</p>
+
+    <div class="form-card">
+      <div class="form-group">
+        <label for="title">Item Title *</label>
+        <input type="text" id="title" placeholder="e.g. Samsung Galaxy S21 – Good Condition" maxlength="100">
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="price">Price (Nu.) *</label>
+          <input type="number" id="price" placeholder="0.00" min="1" step="0.01">
+        </div>
+        <div class="form-group">
+          <label for="cat_id">Category *</label>
+          <select id="cat_id">
+            <option value="">Select Category</option>
+            <option value="1">📱 Electronics</option>
+            <option value="2">👗 Clothing</option>
+            <option value="3">📚 Books</option>
+            <option value="4">🪑 Furniture</option>
+            <option value="5">📦 Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" placeholder="Describe your item — condition, age, why you're selling..." rows="4"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="image">Photo (optional)</label>
+        <input type="file" id="image" accept="image/*">
+      </div>
+
+      <button class="btn btn-primary" id="postBtn" onclick="addProduct()">Post Item</button>
+      <div style="margin-top:12px">
+        <a href="/home" style="color:var(--stone);font-size:0.9rem;text-decoration:none">← Back to Browse</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/auth.js"></script>
+  <script src="/js/product.js"></script>
+  <script>
+    // Redirect if not logged in
+    document.addEventListener('DOMContentLoaded', () => {
+      if (!localStorage.getItem('user_id')) {
+        window.location.href = '/';
+      }
+    });
+  </script>
+</body>
+</html>
